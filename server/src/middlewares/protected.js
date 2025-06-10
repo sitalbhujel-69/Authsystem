@@ -1,4 +1,4 @@
-import { verifyToken } from "../utils/jwt"
+import { verifyToken } from "../utils/jwt.js"
 
 export const protectedAuth = async (req,res,next)=>{
   const token = req.cookies.token

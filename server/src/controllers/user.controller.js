@@ -106,4 +106,13 @@ const loginUser = async (req,res)=>{
   }
 }
 
-export {registerUser,verfiyOtp,validate,verifyCheck,loginUser}
+const logoutUser = async (req,res)=>{
+  res.clearCookie('token',{
+    httpOnly:true,
+    secure:false,
+    sameSite:'lax'
+  })
+  return res.json({message:"user logged out successfully"})
+}
+
+export {registerUser,verfiyOtp,validate,verifyCheck,loginUser,logoutUser}
