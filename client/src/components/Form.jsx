@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import Axios from "../services/axios";
 import {
   Card,
   CardAction,
@@ -13,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Form = () => {
   const [user, setUser] = useState({});
@@ -35,6 +35,10 @@ const Form = () => {
   };
   const gotoLogin = ()=>{
     navigate('/login')
+  }
+  const googleLogin = ()=>{
+        window.location.href = 'http://localhost:3000/auth/google';
+
   }
   return (
     <>
@@ -96,7 +100,7 @@ const Form = () => {
             <Button type="submit" className="w-full">
               SignUp
             </Button>
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" className="w-full" onClick={googleLogin}>
               Login with Google
             </Button>
           </CardFooter>

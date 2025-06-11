@@ -75,12 +75,19 @@ const validate  = async (req,res)=>{
   }
   try {
     const user = verifyToken(token)
-    return res.json({userId:user._id})
+    return res.json({user})
 
   } catch (error) {
     return res.sendStatus(403)
   }
 }
+// const validate = (req, res) => {
+//   if(req.isAuthenticated()){
+//     return res.json({user:req.user})
+//   }
+//   // User is authenticated, you can send user info
+//   return res.sendStatus(401);
+// }
 
 const loginUser = async (req,res)=>{
   const {email,password} = req.body;
